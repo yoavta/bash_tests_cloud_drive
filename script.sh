@@ -1,23 +1,23 @@
 #!/bin/bash
 
 create_things () {
-  cp ../../../files/smalltext.txt  smalltext.txt 
+  # cp ../../../files/smalltext.txt  smalltext.txt 
   sleep 1
   mkdir dir1
-  sleep 1
-  cp ../../../files/bigtext.txt  dir1/bigtext.txt 
-  sleep 1
-  cp ../../../files/image.jpeg  dir1/image.jpeg
-  sleep 1
-  cp ../../../files/ziped.zip  ziped.zip
-  sleep 1
-  mkdir dir2
-  mkdir dir2/dir3
-  cp ../../../files/music.mp3 dir2/dir3/music.mp3
+  # sleep 1
+  # cp ../../../files/bigtext.txt  dir1/bigtext.txt 
+  # sleep 1
+  # cp ../../../files/image.jpeg  dir1/image.jpeg
+  # sleep 1
+  # cp ../../../files/ziped.zip  ziped.zip
+  # sleep 1
+  # mkdir dir2
+  # mkdir dir2/dir3
+  # cp ../../../files/music.mp3 dir2/dir3/music.mp3
 
 }
 
-port=12350
+port=12459
 
 
 # remove dirs
@@ -35,6 +35,7 @@ sleep 0.2
 cd ../server-client-ex2
 python3 -u server.py $port >> ../bash_tests_cloud_drive/logs/serverlog &
 cd ../bash_tests_cloud_drive
+sleep 2
 
 
 
@@ -49,29 +50,32 @@ do
 
   echo $i
   sleep 0.2
-  python3 -u ../server-client-ex2/client.py 127.0.0.1 $port $dir/bash_tests_cloud_drive/clients/client$i/client$i 1   >> logs/client$i &
+  python3 -u ../server-client-ex2/client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i &
   sleep 1.5
   line=$(head -n 1 logs/client$i)
 
+# function that do things 
+  cd clients/client$i/client$i
+  create_things
+  cd ../../..
 
+
+  sleep 1
 
   for j in 1 2
   do
   mkdir clients/client$i/client$i$j
   echo $j
   python3 -u ../server-client-ex2/client.py 127.0.0.1 $port $dir/clients/client$i/client$i$j 1 $line >> logs/client$i$j &
-
-  cd clients/client$i/client$i$j
-  create_things
-  cd ../../..
   echo $i
+  sleep 1
 
   done
 done
 
 
+#sudo pgrep python3    
+# sudo kil number
 
-
-
-
-#sudo pgrep python
+#for start:
+# sh script.sh
