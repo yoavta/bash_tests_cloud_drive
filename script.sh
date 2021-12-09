@@ -89,7 +89,7 @@ do
 
   ## run first client
   sleep 0.2
-  python3 -u ../server-client-ex2/client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
+  python3 -u ../$project_name/client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
   echo wating for $i key.
   sleep 7
   line=$(head -n 1 logs/client$i.log)
@@ -112,7 +112,7 @@ do
   echo creating client $i$j clone of client $i.
   echo key for creating : $line
   mkdir clients/client$i/client$i$j
-  python3 -u ../server-client-ex2/client.py 127.0.0.1 $port $dir/clients/client$i/client$i$j 1 $line>> logs/client$i$j.log &
+  python3 -u ../$project_name/client.py 127.0.0.1 $port $dir/clients/client$i/client$i$j 1 $line>> logs/client$i$j.log &
   sleep 1
 
   done
