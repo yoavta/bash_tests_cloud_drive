@@ -81,7 +81,7 @@ sudo pgrep python3      # will show lists of python process
 
 ```bash
 # the first one is the server, if you kill him all the process will die (lets say that is number is 12345)
-sudo kil 12345
+sudo kill 12345
 sudo pgrep python3     # to check that all the process die.
 ```
 2. Change port.
