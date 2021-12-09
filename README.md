@@ -72,7 +72,7 @@ sh tests.sh
 
 
 - Restart
-- 
+
 If you want to run again you should:
 1. Kill all python proccess. 
 ```bash
