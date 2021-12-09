@@ -4,7 +4,7 @@
 # 1) change the your paths bellow
 # 2) chose port bellow
 # 3) open terminal in the file folder
-# 4) run: "sh tests.sh"
+# 4) run: "sh script.sh"
 
 # AFTER EVERY TRY: (not that scary)
 # if you finish and want to kill the process:
