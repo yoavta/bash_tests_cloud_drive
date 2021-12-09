@@ -46,7 +46,7 @@ Its all written in the script but you should edit:
 2. Working directory
 3. name of your project dir
 ```bash
-FROM TESTS.SH:
+FROM SCRIPT.SH:
 #_________________________________________
 # You need to change paths HERE: 
 
@@ -66,7 +66,7 @@ Dont forget to save.
 
 - Run the script
 ```bash
-sh tests.sh
+sh script.sh
 ```
 Test more things - deletion, etc'
 
