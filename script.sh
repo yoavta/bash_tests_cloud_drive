@@ -4,7 +4,8 @@
 # 1) change the your paths bellow
 # 2) chose port bellow
 # 3) open terminal in the file folder
-# 4) run: "sh script.sh"
+# 4) copy cpython files to the dir.
+# 5) run: "sh script.sh"
 
 # AFTER EVERY TRY: (not that scary)
 # if you finish and want to kill the process:
@@ -19,11 +20,11 @@
 # You need to change paths HERE: 
 
 # 1) port number:
-port=12475
+port=12577
 
 # 2) directory until the \bash_tests_cloud_drive:
 # need to look somthing like: dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
-dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
+dir=/home/shakedc159/university/networks/ex2/bash_tests_cloud_drive
 
 #_________________________________________
 
@@ -91,7 +92,7 @@ do
   python3 -u client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
   echo wating for $i key.
   sleep 7
-  line=$(head -n 1 logs/client$i.log)
+  line=$(tail -n 1 logs/serverlog.log)
   if [ -z "$line" ]
   then
       echo "didnt find key - exit"
@@ -129,6 +130,7 @@ echo "___________________________________________________________"
 done
 
 echo ""
-echo "~~~~~~~~~~~~~~~~~~~~~~~"
-echo "|created by Yoav Tamir|"
-echo "~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "|All files and dirs created, check that everything synchronized."
+echo "                  |created by Yoav Tamir|"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
