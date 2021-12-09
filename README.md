@@ -25,27 +25,19 @@
 #### **ONLY LINUX COMPATIBLE
 
 ## How to start:
-- Go to terminal in __parent__ project directory. 
-
-
-For example:
-```bash
-My project dir is : ~/university/net/ex2
-The terminal should be on : ~/university/net
-Like that : (yoav㉿kali-new)-[~/university/net]
-```
 
 - Clone tests
 ```bash
 git clone https://github.com/yoavta/bash_tests_cloud_drive.git
 ```
 
+- copy client.py , server.py (and utils.py if you made one) into the dir.
+
 - Open tests.sh and edit few things
 
 Its all written in the script but you should edit:
 1. Port number
 2. Working directory
-3. name of your project dir
 ```bash
 FROM SCRIPT.SH:
 #_________________________________________
@@ -58,9 +50,6 @@ port=12475
 # need to look somthing like: dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
 dir=
 
-# 3) name of the dir of your project
-# need to look somthing like: project_name=server-client-ex2
-project_name=
 #_________________________________________
 ```
 Dont forget to save.
