@@ -68,7 +68,7 @@ Dont forget to save.
 ```bash
 sh tests.sh
 ```
-- Test more things - deletion, etc'
+Test more things - deletion, etc'
 
 
 - Restart
