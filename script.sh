@@ -24,7 +24,7 @@ port=12576
 
 # 2) directory until the \bash_tests_cloud_drive:
 # need to look somthing like: dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
-dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
+dir=/home/shakedc159/university/networks/ex2/bash_tests_cloud_drive
 
 #_________________________________________
 
