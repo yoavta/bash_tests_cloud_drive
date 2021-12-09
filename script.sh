@@ -20,7 +20,7 @@
 # You need to change paths HERE: 
 
 # 1) port number:
-port=12577
+port=12576
 
 # 2) directory until the \bash_tests_cloud_drive:
 # need to look somthing like: dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
@@ -92,7 +92,8 @@ do
   python3 -u client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
   echo wating for $i key.
   sleep 7
-  line=$(tail -n 1 logs/serverlog.log)
+  line=$(tail -1 logs/serverlog.log)
+
   if [ -z "$line" ]
   then
       echo "didnt find key - exit"
