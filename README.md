@@ -22,6 +22,7 @@
 5. Open new tracking dir
 6. Run client with the original client key. (Save log in logs)
 
+#### **ONLY LINUX COMPATIBLE
 
 ## How to start:
 - Go to terminal in __parent__ project directory. 
