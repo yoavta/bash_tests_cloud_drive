@@ -25,9 +25,6 @@ port=12475
 # need to look somthing like: dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
 dir=/home/name/university/networks/ex2/bash_tests_cloud_drive
 
-# 3) name of the dir of your project
-# need to look somthing like: project_name=server-client-ex2
-project_name=server-client-ex2
 #_________________________________________
 
 
@@ -64,9 +61,9 @@ mkdir clients
 
 ## run server
 sleep 0.2
-cd ../server-client-ex2
-python3 -u server.py $port >> ../bash_tests_cloud_drive/logs/serverlog.log &
-cd ../bash_tests_cloud_drive
+# cd ../server-client-ex2
+python3 -u server.py $port >> logs/serverlog.log &
+# cd ../bash_tests_cloud_drive
 sleep 2
 
 echo""
@@ -74,10 +71,12 @@ echo Let the magic begin!!!
 
 line=''
 
+
+
 # traverse every client
 # you can run more or less clients by changing the numbers after "in"
 
-echo ___________________________________________________________
+echo "___________________________________________________________"
 for i in a b c
 
 do
@@ -89,11 +88,19 @@ do
 
   ## run first client
   sleep 0.2
-  python3 -u ../$project_name/client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
+  python3 -u client.py 127.0.0.1 $port $dir/clients/client$i/client$i 1   >> logs/client$i.log &
   echo wating for $i key.
   sleep 7
   line=$(head -n 1 logs/client$i.log)
-  echo client $i key given : $line
+  if [ -z "$line" ]
+  then
+      echo "didnt find key - exit"
+      exit 1
+  else
+        echo client $i key given : $line
+  fi
+
+
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 # function that do things 
@@ -112,13 +119,13 @@ do
   echo creating client $i$j clone of client $i.
   echo key for creating : $line
   mkdir clients/client$i/client$i$j
-  python3 -u ../$project_name/client.py 127.0.0.1 $port $dir/clients/client$i/client$i$j 1 $line>> logs/client$i$j.log &
+  python3 -u client.py 127.0.0.1 $port $dir/clients/client$i/client$i$j 1 $line>> logs/client$i$j.log &
   sleep 1
 
   done
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo ""
-echo ___________________________________________________________
+echo "___________________________________________________________"
 done
 
 echo ""
